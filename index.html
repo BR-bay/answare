@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Love Questions</title>
+    <style>
+        /* Gaya Umum */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle at top left, #330033, #1a001a, #0a000a);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            background: rgba(20, 0, 30, 0.95);
+            border: 3px solid;
+            border-image: linear-gradient(135deg, #ff00ff, #ff0066, #ff0000) 1;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 50px #ff00ff, 0 0 50px #ff0066 inset;
+            margin: 10px;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 25px #ff00ff, 0 0 25px #ff0066;
+            animation: glow 1.5s infinite alternate;
+            color: #ff77ff;
+        }
+
+        .question {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #ff77ff;
+            text-shadow: 0 0 15px #ff00ff, 0 0 10px #ff0066;
+        }
+
+        .answer {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 15px;
+            font-size: 1.2em;
+            border: 3px solid #ff0066;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            outline: none;
+            margin-bottom: 15px;
+            box-shadow: 0 0 20px #ff0066;
+            transition: box-shadow 0.3s, background 0.3s;
+        }
+
+        input[type="text"]:focus {
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 30px #ff0066, 0 0 30px #ff00ff;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 1.2em;
+            color: #fff;
+            background: linear-gradient(45deg, #ff00ff, #ff0066, #ff0000);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 20px #ff0066;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px #ff00ff, 0 0 50px #ff0066;
+        }
+
+        .emojis {
+            margin-top: 20px;
+            font-size: 1.8em;
+            animation: bounce 1.5s infinite alternate;
+            text-shadow: 0 0 20px #ff00ff, 0 0 20px #ff0066;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 15px #ff00ff, 0 0 15px #ff0066;
+            }
+            to {
+                text-shadow: 0 0 40px #ff00ff, 0 0 40px #ff0066;
+            }
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-15px);
+            }
+        }
+
+        .custom-question {
+            margin-top: 20px;
+        }
+
+        .custom-question input {
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #ff0066;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            outline: none;
+            margin-right: 10px;
+            box-shadow: 0 0 15px #ff0066;
+        }
+
+        .custom-question button {
+            padding: 10px 15px;
+            font-size: 1em;
+            background: linear-gradient(45deg, #ff0066, #ff00ff);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 0 15px #ff0066;
+        }
+
+        .custom-question button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #ff00ff, 0 0 30px #ff0066;
+        }
+
+        /* Responsivitas Tambahan */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                padding: 10px;
+                overflow-y: auto;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .question {
+                font-size: 1.4em;
+            }
+
+            input[type="text"] {
+                font-size: 1em;
+                padding: 10px;
+            }
+
+            button {
+                font-size: 1em;
+                padding: 10px;
+            }
+
+            .custom-question input,
+            .custom-question button {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .question {
+                font-size: 1.2em;
+            }
+
+            input[type="text"] {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+
+            button {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+
+            .custom-question input,
+            .custom-question button {
+                font-size: 0.8em;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨💖Untuk Apri Jonita Yenda, cinta sejatiku💖✨</h1>
+        <div id="app">
+            <p class="question" id="question">Loading...</p>
+            <div class="answer">
+                <input type="text" id="answer" placeholder="Type your answer here...">
+                <button onclick="submitAnswer()">💌 Submit</button>
+            </div>
+        </div>
+
+        <div class="custom-question">
+            <input type="text" id="customQuestion" placeholder="Have a new question? Write it here...">
+            <button onclick="sendCustomQuestion()">✨ Send Custom Question</button>
+        </div>
+
+        <div class="emojis">💕💖💘💝💞💓</div>
+    </div>
+
+    <script>
+        const questions = [
+            "Apa kamu sadar, sayang, bahwa setiap napas Bayu selalu ada doa untuk kamu?",
+            "Apa kamu percaya, sayang, kalau Bayu mau terus berjuang untuk masa depan kita?",
+            "Apa kamu sadar, sayang, bahwa setiap napas Bayu selalu ada doa untuk kamu? Setiap kali Bayu bangun pagi, hal pertama yang Bayu pikirkan adalah kamu. Apakah kamu tidur nyenyak? Apakah kamu bahagia? Apakah kamu tahu betapa Bayu bersyukur karena Allah telah mempertemukan Bayu dengan kamu? 🥹❤",
+            "Bayu penasaran, Enda pernah nggak ngerasa kalau cinta Bayu ini seperti pelindung yang ingin selalu menjaga kamu? Bayu nggak pernah mau kamu sedih atau terluka, sayang. Bayu cuma ingin lihat kamu tersenyum, lihat kamu bahagia, dan lihat kamu selalu merasa aman di sisi Bayu. Bayu rela, apa pun itu, untuk memastikan kamu selalu punya tempat yang nyaman di hati Bayu. 🥺❤",
+            "Apa kamu percaya, sayang, kalau Bayu mau terus berjuang untuk masa depan kita? Bayu nggak punya apa-apa sekarang, tapi Bayu punya cinta yang nggak akan pernah habis untuk kamu. Bayu mau jadi imam terbaik buat kamu, suami yang bisa bantuin kamu di rumah, nemenin kamu masak, bantu cuci piring, bersihin rumah, bahkan jagain kamu pas kamu lagi capek. Bayu mau jadi tempat kamu bersandar kapan pun kamu butuh. 🥰❤",
+            "Pernah nggak, Enda ngerasa kalau hidup Bayu ini rasanya nggak lengkap kalau nggak ada kamu di dalamnya? Bayu nggak bisa ngebayangin hari-hari Bayu tanpa kamu. Kamu itu cahaya Bayu, kebahagiaan Bayu, dan alasan Bayu terus berusaha jadi orang yang lebih baik setiap harinya. Kamu pernah ngerasa kayak gitu juga nggak, sayang? 🥹❤",
+            "Apa kamu yakin, sayang, kalau Bayu ini adalah pilihan terbaik untuk kamu? Bayu tahu, Bayu punya banyak kekurangan. Bayu kadang keras kepala, kadang terlalu sensitif, kadang nggak ngerti kamu maunya apa. Tapi Bayu selalu berusaha untuk jadi lebih baik, untuk bisa seimbang sama kamu, untuk bisa bikin kamu bangga punya Bayu di sisi kamu. Kamu yakin nggak, sayang, kalau kita bisa terus melangkah bareng sampai selamanya?",
+            "Terakhir, Bayu mau tanya: Apa kamu bisa selalu mencintai Bayu, dengan segala kekurangan dan kelebihan Bayu, sama seperti Bayu mencintai kamu? Bayu nggak pernah minta apa-apa dari kamu, kecuali satu: Tetaplah jadi Enda yang Bayu kenal, yang Bayu cintai, yang Bayu mau jadikan istri, dan yang Bayu mau jaga sampai akhir hayat. Kamu mau, sayang? Kamu siap, sayang? 🥹❤",
+            "pap full body ya sama juling melet hehe",
+            "Apa kamu yakin, sayang, kalau Bayu ini adalah pilihan terbaik untuk kamu?"
+        ];
+
+        let currentQuestion = 0;
+
+        const questionEl = document.getElementById('question');
+        const answerEl = document.getElementById('answer');
+
+        function loadQuestion() {
+            if (currentQuestion < questions.length) {
+                questionEl.textContent = questions[currentQuestion];
+            } else {
+                questionEl.textContent = "Thank you for answering all the questions! 💕";
+                document.querySelector('.answer').style.display = 'none';
+            }
+        }
+
+        function submitAnswer() {
+            const answer = answerEl.value;
+            if (answer.trim() === '') {
+                alert('Please provide an answer before proceeding!');
+                return;
+            }
+
+            const number = "+62085212637719";
+            const whatsappURL = `https://api.whatsapp.com/send?phone=${number}&text=Question: ${questions[currentQuestion]}%0AAnswer: ${answer}`;
+
+            window.open(whatsappURL, '_blank');
+
+            answerEl.value = '';
+            currentQuestion++;
+            loadQuestion();
+        }
+
+        function sendCustomQuestion() {
+            const customQuestion = document.getElementById('customQuestion').value;
+            if (customQuestion.trim() === '') {
+                alert('Please write a question before sending!');
+                return;
+            }
+
+            const number = "+62085212637719";
+            const whatsappURL = `https://api.whatsapp.com/send?phone=${number}&text=New Question: ${customQuestion}`;
+
+            window.open(whatsappURL, '_blank');
+            document.getElementById('customQuestion').value = '';
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
